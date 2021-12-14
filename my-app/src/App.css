@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: rgb(240, 236, 236);
+  --text-color: rgb(141, 168, 64);
+}
+
+.container {
+  background-color: var(--bg-color);
+  width: 90vw;
+  height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  padding: 5px 0 15px;
+  color: white;
+  text-shadow: 2px 2px 4px var(--text-color);
+}
+
+h2 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  text-align: center;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.underline {
+  width: 4rem;
+  height: 0.2rem;
+  background: var(--text-color);
+  margin: auto;
+}
+
+button {
+  padding: 5px;
+  width: 15%;
+  background-color: var(--text-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+button:active {
+  transform: scale(0.96);
+  background-color: white;
+  color: var(--text-color);
+}
+
+input {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+  border: 2px solid var(--text-color);
+  outline: none;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid rgb(54, 53, 53);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--text-color);
+}
+
+.errorContainer{
+ height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
