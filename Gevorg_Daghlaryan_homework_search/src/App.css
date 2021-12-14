@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+.title{
+  display: inline-flex;
+  width: 180px;
+  height: 100px;
+  background-color: #e5851f;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 3px solid brown;
+  border-radius: 5px;
+
+}
+.title:hover {
+  animation: bounce 0.5s;
+
+}
+
+* {box-sizing: border-box;}
+form {
+  position: relative;
+  width: 500px;
+  margin: 20px auto;
+  background: rgba(222, 186, 216, 0.6);
+  margin-top:50px ;
+
+}
+input {
+  border: none;
+
+  background: transparent;
+}
+input {
+  width: 100%;
+  height: 50px;
+  padding-left: 15px;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+
+  80% {
+    transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+.titleList{
+  background-color: blanchedalmond;
+
+
+
+}
