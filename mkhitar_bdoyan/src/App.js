@@ -1,5 +1,7 @@
 import {Component} from "react";
 import Header from "./components/Header";
+import Src from "./components/src/Src";
+import SrcV1 from "./components/srcV1/Src";
 import {circlesColors, circlesIds} from "./helpers/constants";
 
 const {
@@ -83,6 +85,7 @@ class App extends Component {
 
     return (
         <>
+       
           {
             isHeaderShown && <Header
                 user={user}
@@ -107,6 +110,8 @@ class App extends Component {
               })
             }
           </div>
+        {/* <Src /> */}
+        <SrcV1/>
         </>
     )
   }
