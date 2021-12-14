@@ -20,7 +20,7 @@ class SrcV1 extends Component {
     hendelChenj(arr, text) {
 
         const retArr = arr.filter((e) => {
-            return e.title.includes(text)
+            return e.title.indexOf(text)>-1
         })
         this.setState({ filterd: [...retArr] })
     }
@@ -46,7 +46,7 @@ class SrcV1 extends Component {
                 } />
 
                 {
-                    filterd.length === 0 ?
+                    !this.state.inpVal  ?
                         resSer.map(e => {
                             return (
                                 <h2 key={e.id} >{e.title}</h2>
