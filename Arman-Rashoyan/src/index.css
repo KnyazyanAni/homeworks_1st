@@ -1,0 +1,20 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.searchResult{
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
