@@ -10,7 +10,8 @@ class FetchClass extends React.Component {
       value:'',
       isLoading: true,
       isError: false,
-     errorText:''
+      errorText: '',
+      
     }
   }
   fetchData = async () => {
@@ -21,15 +22,18 @@ class FetchClass extends React.Component {
       }
       const jsonData = await fetchData.json()
        this.setState({isLoading:false, isError:false, data:jsonData})
-    } catch(e) {
-      this.setState({ isLoading: false, isError: true, data: [], errorText:e })
-      console.log(e)
+    } catch(err) {
+      this.setState({ isLoading: false, isError: true, data: [], errorText:err })
+      console.log(err)
     }
    
   }
   componentDidMount() {
     this.fetchData()
   }
+  // shouldComponentUpdate() {
+    
+  // }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.data !== this.state.data) {
     console.log('state has changed.')
@@ -37,19 +41,32 @@ class FetchClass extends React.Component {
  }
   handelSearch = (e) => {
     e.preventDefault()
-    const tempArr = this.state.data.filter(item => item.title === this.state.value)
-    this.setState({data:tempArr})
+    if (!this.state.value) { 
+      this.fetchData()
+    } 
+    if (this.state.value){
+       const tempArr = this.state.data.filter(item => item.title === this.state.value)
+      this.setState({data:tempArr, isAlertMessage:false})
+    }
   }
+  handelChange =(e) => {
+    const el = e.target.value
+       this.setState({value:el})
+       const filterArr = this.state.data.filter(item => item.title.includes(el))
+      this.setState({data:filterArr})
+    
    
+   }
   render() { 
-    const { data, value, errorText } = this.state
+    const { data, value,  errorText } = this.state
     
     if (this.state.isLoading) {
      return <main> Loading...</main>
     }if (this.state.isError) {
       return (
+     
         <div className='errorContainer'>
-          <h1 style={{ color: 'red', textAlign: 'center' }}>HTTP error! status:404 </h1>
+          <h1 style={{ color: 'red' }}>HTTP error! status:404 </h1>
           {console.log("errorText -----------", errorText)}
         </div>
       )
@@ -59,9 +76,11 @@ class FetchClass extends React.Component {
       <main>  
         <form onSubmit={this.handelSearch}>
              <input type='text' value={value} placeholder='Search...'
-              onChange={(e) => this.setState({value:e.target.value})}
+              // onChange={(e) => this.setState({value:e.target.value})}
+             onChange={this.handelChange}
              />
-          <button>Find Todo list</button>
+           <button type='submit'>Find Todo list</button>
+          
            <table>
              <thead>
                <tr>

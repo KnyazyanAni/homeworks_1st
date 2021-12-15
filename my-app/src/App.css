@@ -77,12 +77,15 @@ th {
   border: 1px solid rgb(54, 53, 53);
   text-align: left;
   padding: 8px;
+
 }
 
 tr:nth-child(even) {
   background-color: var(--text-color);
 }
-
+tr{
+  color:rgb(48, 48, 66);
+}
 .errorContainer{
  height: 80vh;
   display: flex;
