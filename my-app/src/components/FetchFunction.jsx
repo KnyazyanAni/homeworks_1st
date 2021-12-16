@@ -14,9 +14,9 @@ const FetchFunction = () => {
          throw new Error(`HTTP error! status: ${fetchData.status}`);
       }
       const jsonData = await fetchData.json()
-      setIsLoading(false)
-      setIsError(false)
-      setData(jsonData)
+        setIsLoading(false)
+        setIsError(false)
+        setData(jsonData)
        
     } catch (e) {
       setIsLoading(false)
@@ -27,30 +27,55 @@ const FetchFunction = () => {
   }
   useEffect(() => {
     fetchData()
-  }, [value])
+  }, [])
  
+  // useEffect(() => {
+  //   setData(prevData => prevData.map(item => {
+  //     item.isHidden = !item.data.includes(value)
+  //     return item
+  //   }))
+  // },[value])
  
  const handelSearch = (e) => {
-    e.preventDefault()
+   e.preventDefault()
+   if (!value) {
+     return data
+   }
    const tempArr = data.filter(item => item.title === value)
    setData(tempArr)
   }
-   
-    if (isLoading) {
+  const handelChange =(e) => {
+    const el = e.target.value
+       setValue(el)
+       const filterArr = data.filter(item => item.title.toLowerCase().includes(el.toLowerCase()))
+      setData(filterArr)
+   } 
+
+//render UI
+  if (isLoading) {
      return <main> Loading...</main>
+    }if (isError) {
+      return (
+        <div className='errorContainer'>
+          <h1 style={{ color: 'red' }}>HTTP error! status:404 </h1>
+        </div>
+      ) 
     } else {
      return (
       <main>  
         <form onSubmit={handelSearch}>
              <input type='text' value={value} placeholder='Search...'
-              onChange={(e) => setValue(e.target.value)}
+              onChange={handelChange}
              />
           <button>Find Todo list</button>
-          <table>
-              <tr>
-              <th>N:</th>
-              <th>List</th>
+           <table>
+             <thead>
+               <tr>
+                <th>N:</th>
+                <th>List</th>
                </tr>
+             </thead>
+             
                <tbody >
                    {data.map(item => {
             const { id, title } = item

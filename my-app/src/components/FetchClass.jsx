@@ -41,12 +41,9 @@ class FetchClass extends React.Component {
  }
   handelSearch = (e) => {
     e.preventDefault()
-    if (!this.state.value) { 
-      this.fetchData()
-    } 
     if (this.state.value){
        const tempArr = this.state.data.filter(item => item.title === this.state.value)
-      this.setState({data:tempArr, isAlertMessage:false})
+      this.setState({data:tempArr})
     }
   }
   handelChange =(e) => {
@@ -54,8 +51,6 @@ class FetchClass extends React.Component {
        this.setState({value:el})
        const filterArr = this.state.data.filter(item => item.title.includes(el))
       this.setState({data:filterArr})
-    
-   
    }
   render() { 
     const { data, value,  errorText } = this.state
