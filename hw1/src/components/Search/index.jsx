@@ -20,7 +20,7 @@ class Search extends Component {
     });
   };
 
-  onInutChange = (e) => {
+  onInputChange = (e) => {
     this.setState({
       inputValue: e.target.value,
     });
@@ -45,7 +45,7 @@ class Search extends Component {
             className={s.input}
             type="text"
             value={this.state.inputValue}
-            onChange={this.onInutChange}
+            onChange={this.onInputChange}
             placeholder="Type todo title"
           />
         </div>
