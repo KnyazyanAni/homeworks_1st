@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+.card{
+  width: 300px;
+  height: max-content;
+  background-color: rgb(80, 43, 0);
+  display: block;
+  border: 1px solid rgb(24, 16, 7);
+  margin: 10px auto;
+  border-radius: 5px;
+  color: white;
+  font-size: 17px;
+  padding: 5px;
+}
+
