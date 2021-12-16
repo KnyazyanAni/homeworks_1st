@@ -30,10 +30,9 @@ const FetchFunction = () => {
   }, [])
  
   // useEffect(() => {
-  //   setData(prevData => prevData.map(item => {
-  //     item.isHidden = !item.data.includes(value)
-  //     return item
-  //   }))
+       
+  //      const filterArr = data.filter(item => item.title.toLowerCase().includes(value.toLowerCase()))
+  //     setData(filterArr)
   // },[value])
  
  const handelSearch = (e) => {
@@ -47,8 +46,8 @@ const FetchFunction = () => {
   const handelChange =(e) => {
     const el = e.target.value
        setValue(el)
-       const filterArr = data.filter(item => item.title.toLowerCase().includes(el.toLowerCase()))
-      setData(filterArr)
+      //  const filterArr = data.filter(item => item.title.toLowerCase().includes(el.toLowerCase()))
+      // setData(filterArr)
    } 
 
 //render UI
@@ -72,19 +71,20 @@ const FetchFunction = () => {
              <thead>
                <tr>
                 <th>N:</th>
-                <th>List</th>
+                 <th>List</th>
+                 <th>Completed</th>
                </tr>
              </thead>
              
                <tbody >
-                   {data.map(item => {
-            const { id, title } = item
+                   {data.filter(item =>item.title.toLowerCase().includes(value.toLowerCase()) ).map(item => {
+            const { id, title, completed } = item
             return (
               <tr key={id}>
                 <td>{ id}</td>
-                 <td > {title}</td>
+                <td > {title }</td>
+                {completed ? <td > true</td> : <td > false</td>}
               </tr>
-              
             )
           }) }
               </tbody>
