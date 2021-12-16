@@ -9,7 +9,7 @@ const useTodoList = () => {
         getTodoList().then((data)=> {
             setList(data)
         })
-        setLoading(false)
+        setLoading(false)  // Hayk => ավելի ճիշտ կլիներ finally-ի մեջ անեիր սա
     }, [])
 
     return {list,loading}
