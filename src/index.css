@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.inputTxt{
+  width: 300px;
+  margin: 70px;
+}
+.container{
+  margin-left: 70px;
+  background-color:darkgray ;
+}
+.title{
+  background-color: beige;
+  width: 500px;
+  border-radius: 15%;
+  margin: 3px 10px;
+}
