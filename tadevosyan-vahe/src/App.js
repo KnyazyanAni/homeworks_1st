@@ -1,21 +1,20 @@
 import useList from "./hooks/use-list";
-import {useRef, useState} from "react";
+import { useState} from "react";
 import styles from "./app.module.css"
 
 
 const App = () => {
     const {list} = useList()
-    const inputRef = useRef()
     const [value, setValue] = useState('')
 
-    const handleChange = () => {
-        setValue(inputRef.current?.value.toLowerCase())
+    const handleChange = (e) => {
+        setValue(e.current.value.toLowerCase())
     }
 
     return (
         <div className={styles.container}>
             <label> {'Search Todo List'} </label>
-            <input placeholder={'Enter title'} className={styles.input} ref={inputRef} onChange={handleChange}/>
+            <input placeholder={'Enter title'} className={styles.input} onChange={handleChange}/>
             {value.length ?
                 <div>
                     <ol>
