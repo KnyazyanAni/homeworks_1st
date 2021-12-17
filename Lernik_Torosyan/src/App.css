@@ -1,0 +1,34 @@
+.border{
+    margin: 50px;
+    border-bottom: 1px solid black;
+  }
+
+.block{
+    width: 20%;
+    border: 1px solid red;
+    display: block;
+    margin: 5px;
+}
+.title {
+    width: 97%;
+    padding: 5px;
+    border: 1px solid black;
+  }
+
+  .id {
+    width: 97%;
+    padding: 5px;
+    border: 1px solid black;
+  }
+
+  .userId {
+    width: 97%;
+    padding: 5px;
+    border: 1px solid black;
+  }
+
+  /* .completed {
+    width: 97%;
+    padding: 5px;
+    border: 1px solid black;
+  } */
