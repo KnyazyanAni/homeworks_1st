@@ -1,7 +1,6 @@
-import {Component, memo} from "react";
+import {Component, memo, useEffect} from "react";
 
 class Header extends Component{
-
     clickListener = (e) => {
         console.log('Have I clicked on the header ? ', e.target.localName === 'header')
     }
@@ -25,4 +24,23 @@ class Header extends Component{
     }
 }
 
-export default memo(Header)
+const Header1 = ({color, user}) => {
+    useEffect(() => {
+        document.addEventListener('click', clickListener)
+        return () => {
+            document.removeEventListener('click', clickListener)
+        }
+    }, [])
+
+    const clickListener = (e) => {
+        console.log('Have I clicked on the header ? ', e.target.localName === 'header')
+    }
+
+    return (
+        <header className='header' style={{backgroundColor: color}}>
+            Header {user.name}
+        </header>
+    )
+}
+
+export default memo(Header1)
